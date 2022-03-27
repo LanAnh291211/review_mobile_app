@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:review_mobile_app/api_services.dart';
+import 'package:review_mobile_app/my_home_page_controller.dart';
 import 'package:review_mobile_app/popular_view.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -9,6 +14,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
+  final MyHomePageController _myHomePageController = Get.put(MyHomePageController());
   late TabController _tabController;
 
   @override
@@ -32,10 +38,10 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
 
   _tabBar() {
     return Padding(
-      padding: EdgeInsets.only(top: 80, left: 25),
+      padding: EdgeInsets.only(top: 80.h, left: 25.w),
       child: TabBar(
         controller: _tabController,
-        labelStyle: TextStyle(fontFamily: "Comfortaa", fontSize: 24, fontWeight: FontWeight.bold),
+        labelStyle: GoogleFonts.comfortaa(fontWeight: FontWeight.bold, fontSize: 24.sp),
         tabs: [
           Text("Popular"),
           Text("NowPlaying"),
@@ -43,8 +49,8 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
           Text("Top Rate"),
         ],
         indicatorColor: Colors.black,
-        indicatorPadding: EdgeInsets.symmetric(horizontal: 10),
-        labelPadding: EdgeInsets.symmetric(horizontal: 13, vertical: 2),
+        indicatorPadding: EdgeInsets.symmetric(horizontal: 10.h),
+        labelPadding: EdgeInsets.symmetric(horizontal: 13.w, vertical: 2.h),
         labelColor: Colors.black,
         unselectedLabelColor: Colors.black.withOpacity(0.5),
         isScrollable: true,
