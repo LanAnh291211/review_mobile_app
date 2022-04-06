@@ -14,7 +14,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
-  final MyHomePageController _myHomePageController = Get.put(MyHomePageController());
+  
   late TabController _tabController;
 
   @override

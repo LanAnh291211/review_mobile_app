@@ -4,7 +4,7 @@ import 'package:review_mobile_app/item_cast.dart';
 import 'package:review_mobile_app/item_popular.dart';
 
 class DetailsScreen extends StatelessWidget {
-  ItemPopularDemo? itemPopular;
+  ItemPopular? itemPopular;
   DetailsScreen({
     Key? key,
     this.itemPopular,
@@ -30,7 +30,7 @@ class DetailsScreen extends StatelessWidget {
       body: Stack(
         children: [
           Image.asset(
-            itemPopular!.urlPhoto,
+            itemPopular!.posterPath.toString(),
             fit: BoxFit.cover,
             height: MediaQuery.of(context).size.height,
           ),
@@ -81,7 +81,7 @@ class DetailsScreen extends StatelessWidget {
             //     image: DecorationImage(
             //         fit: BoxFit.cover,
             //         image: AssetImage(
-            //           itemPopular!.urlPhoto,
+            //           itemPopular!.posterPath,
             //         )),
             //   ),
             // ),
@@ -92,7 +92,7 @@ class DetailsScreen extends StatelessWidget {
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(18),
                   child: Image.asset(
-                    itemPopular!.urlPhoto,
+                    itemPopular!.posterPath.toString(),
                     fit: BoxFit.cover,
                     width: 150.w,
                     height: 150.h,
@@ -106,7 +106,7 @@ class DetailsScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    itemPopular!.name,
+                    itemPopular!.originalTitle!,
                     style: TextStyle(fontWeight: FontWeight.w500, fontSize: 20.sp),
                   ),
                   SizedBox(
@@ -114,7 +114,7 @@ class DetailsScreen extends StatelessWidget {
                   ),
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [const Expanded(flex: 1, child: const Text("Xuat ban")), Expanded(flex: 2, child: Text(itemPopular!.releaseDate))],
+                    children: [const Expanded(flex: 1, child: const Text("Xuat ban")), Expanded(flex: 2, child: Text(itemPopular!.releaseDate!))],
                   ),
                   SizedBox(
                     height: 30.h,

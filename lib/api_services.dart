@@ -2,15 +2,15 @@ import 'package:dio/dio.dart';
 import 'package:review_mobile_app/api_url.dart';
 
 class ApiServices {
-  static Future<void> movieInfo() async {
-    Response response;
-    var dio = Dio();
+    static movieInfo() async {
     try {
-      print("Kien");
-      response = await dio.get(ApiUrl.movieInfoUrl, options: Options(contentType: "application/json;charset=utf-8"));
-      print(response.statusCode);
-    } catch (e) {
-      print("asafsdfdsfsdf" + e.toString());
+      Response response = await Dio().get(ApiUrl.movieInfoUrl);
+      print("Lấy dữ liệu thành công " + response.statusCode.toString());
+      print(response.data);
+      return response.data;
+    } on Exception catch (e) {
+      // TODO
+      print("Lỗi lấy dữ liệu " + e.toString());
     }
   }
 }
